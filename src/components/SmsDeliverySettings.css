@@ -1,0 +1,20 @@
+.vn-delivery-step { margin-bottom: 30px; }
+.vn-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid #e2e8f0; cursor: pointer; }
+.vn-toggle-text { display: flex; flex-direction: column; gap: 4px; }
+.vn-toggle-text strong { color: #0f172a; font-size: 14px; }
+.vn-toggle-text > span { color: #64748b; font-size: 13px; }
+.vn-toggle-row input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.vn-toggle-switch { position: relative; width: 44px; height: 25px; flex: none; border-radius: 20px; background: #cbd5e1; transition: background 0.18s ease; }
+.vn-toggle-switch::after { position: absolute; top: 3px; left: 3px; width: 19px; height: 19px; border-radius: 50%; background: #fff; content: ''; transition: transform 0.18s ease; }
+.vn-toggle-row input:checked + .vn-toggle-switch { background: #2563eb; }
+.vn-toggle-row input:checked + .vn-toggle-switch::after { transform: translateX(19px); }
+.vn-toggle-row input:focus-visible + .vn-toggle-switch { outline: 2px solid #0f172a; outline-offset: 2px; }
+.vn-email-options { display: grid; gap: 12px; padding: 16px 0 4px; color: #475569; font-size: 13px; }
+.vn-email-options label { display: flex; align-items: center; gap: 9px; }
+.vn-email-options input[type='radio'] { accent-color: #2563eb; }
+.vn-custom-email { width: 100%; min-height: 46px; padding: 0 13px; border: 1px solid #cbd5e1; border-radius: 10px; font: inherit; }
+.vn-custom-email:focus { outline: 2px solid rgba(37, 99, 235, 0.3); border-color: #2563eb; }
+.vn-generate-number { width: 100%; min-height: 52px; margin-top: 22px; border: 0; border-radius: 12px; background: #0f172a; color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.18s ease, transform 0.18s ease; }
+.vn-generate-number:hover { transform: translateY(-1px); background: #1e293b; }
+.vn-trust-note { display: flex; justify-content: center; align-items: center; gap: 7px; margin: 13px 0 0; color: #64748b; font-size: 12px; text-align: center; }
+.vn-trust-note svg { flex: none; color: #059669; }

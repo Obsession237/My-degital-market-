@@ -1,0 +1,57 @@
+.service-visual { position: relative; display: flex; height: 100%; flex: 1; align-items: center; justify-content: center; z-index: 5; }
+.service-visual .floating-pill { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 10px 24px; border-radius: 100px; background: #fff; color: #3b82f6; font-size: 14px; font-weight: 700; white-space: nowrap; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+.service-visual .flag { color: #94a3b8; font-size: 12px; font-weight: 800; }
+
+.fb-center-blob { display: flex; width: 120px; height: 120px; align-items: center; justify-content: center; border-radius: 24px; background: #1877f2; color: #fff; box-shadow: 0 20px 40px rgba(24, 119, 242, 0.3); animation: floatMain 6s ease-in-out infinite; }
+.fb-main-icon { width: 60px; height: 60px; }
+.fb-main-icon-mobile { display: none; }
+.social-pill-logo { width: 20px; height: 20px; object-fit: contain; }
+.fb-pill-1 { top: 20%; left: 10%; animation: floatPill 4s ease-in-out infinite; }
+.fb-pill-2 { top: 15%; right: 10%; animation: floatPill 5s ease-in-out infinite reverse; }
+.fb-pill-3 { right: 20%; bottom: 25%; animation: floatPill 6s ease-in-out infinite; }
+
+.numbers-visual { overflow: visible; }
+.numbers-visual .num-pill-1 { top: 18%; left: 0; color: #8b5cf6; animation: floatPill 4.5s ease-in-out infinite; }
+.numbers-visual .num-pill-2 { top: 38%; right: 0; color: #8b5cf6; animation: floatPill 5.5s ease-in-out infinite reverse; }
+.numbers-visual .num-pill-3 { bottom: 12%; left: 2%; color: #8b5cf6; animation: floatPill 6.5s ease-in-out infinite; }
+
+.subscriptions-visual .app-window { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 18px; border: 10px solid rgba(255, 255, 255, 0.88); border-radius: 24px; background: rgba(255, 255, 255, 0.35); box-shadow: 0 18px 40px rgba(120, 53, 15, 0.12); }
+.subscriptions-visual .app-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.subscriptions-visual .app-name { color: #2f2926; font-size: 14px; font-weight: 700; text-align: center; }
+.subscriptions-visual .app-logo { display: block; width: 58px; height: 58px; margin: 0 auto; object-fit: contain; }
+
+.giftcards-visual { position: relative; width: 100%; height: 100%; }
+.giftcards-visual .gc-card { position: absolute; display: flex; width: 140px; height: 200px; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); animation: floatPill 5s ease-in-out infinite; }
+.giftcards-visual .gc-apple { top: 25%; left: 15%; z-index: 1; background: #1a1a1a; transform: rotate(-15deg); animation-delay: 0s; }
+.giftcards-visual .gc-amazon { top: 15%; left: 50%; z-index: 3; background: #ea580c; transform: translateX(-50%) rotate(0deg) scale(1.1); animation-delay: 1s; }
+.giftcards-visual .gc-steam { top: 25%; right: 15%; z-index: 2; background: #2563eb; transform: rotate(15deg); animation-delay: 2s; }
+
+@keyframes floatMain { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
+@keyframes floatPill { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+
+.phone-hero-image { position: absolute; top: 50%; left: 50%; z-index: 1; width: 290px; max-width: 100%; height: 330px; object-fit: contain; transform: translate(-50%, -50%); }
+
+@media (max-width: 900px) {
+  .service-visual { width: min(100%, 320px); margin: 0 auto; transform: none; }
+
+  .facebook-visual { height: 132px; }
+  .facebook-visual .floating-pill { display: none; }
+  .fb-center-blob { width: 92px; height: 92px; border: 1px solid rgba(255, 255, 255, 0.82); border-radius: 50%; background: rgba(255, 255, 255, 0.48); color: #0866ff; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); animation: none; }
+  .fb-main-icon-desktop { display: none; }
+  .fb-main-icon-mobile { display: block; width: 48px; height: 48px; }
+
+  .numbers-visual { position: relative; z-index: 1; height: 176px; margin: 0 auto; transform: none; }
+  .numbers-visual .floating-pill { display: none; }
+  .numbers-visual .phone-hero-image { top: 50%; bottom: auto; left: 50%; width: 172px; height: 176px; transform: translate(-50%, -50%); }
+
+  .subscriptions-visual { height: auto; margin: 0 auto; transform: none; }
+  .subscriptions-visual .app-window { box-sizing: border-box; width: 244px; gap: 9px; padding: 11px; border-width: 5px; border-radius: 18px; }
+  .subscriptions-visual .app-logo { width: 44px; height: 44px; }
+  .subscriptions-visual .app-name { font-size: 11px; }
+
+  .giftcards-visual { height: 148px; }
+  .giftcards-visual .gc-card { top: 50%; width: 88px; height: 126px; border-radius: 12px; animation: none; }
+  .giftcards-visual .gc-apple { top: 50%; left: 8%; transform: translateY(-50%) rotate(-12deg); }
+  .giftcards-visual .gc-amazon { top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.05); }
+  .giftcards-visual .gc-steam { top: 50%; right: 8%; transform: translateY(-50%) rotate(12deg); }
+}

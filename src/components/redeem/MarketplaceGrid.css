@@ -1,0 +1,52 @@
+/* =========================================
+   DYNAMIC MARKETPLACE GRID
+   ========================================= */
+.redeem-marketplace { padding: 40px 0 80px 0; transition: margin-top 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+.marketplace-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+.marketplace-header h2 { font-size: 28px; font-weight: 700; margin: 0 0 8px 0; }
+.marketplace-header p { font-size: 15px; color: #64748b; margin: 0; }
+.glass-search-bar { display: flex; align-items: center; background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); border: 1px solid #cbd5e1; border-radius: 100px; padding: 12px 24px; width: 320px; transition: border-color 0.2s; }
+.glass-search-bar:focus-within { border-color: #3b82f6; background: #fff; }
+.search-icon { color: #94a3b8; margin-right: 12px; }
+.glass-search-bar input { border: none; background: transparent; outline: none; font-size: 15px; width: 100%; color: #0f172a; }
+.brand-cards-grid { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+.brand-card { border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); position: relative; overflow: hidden; }
+.brand-card::before { content: ''; position: absolute; inset: 0; opacity: 0.85; z-index: -1; transition: opacity 0.3s ease; }
+.brand-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); }
+.brand-card:hover::before { opacity: 1; }
+.brand-card-icon { display: grid; width: 64px; height: 64px; place-items: center; margin: 8px auto 0; z-index: 2; }
+.brand-card-icon-amazon { width: 112px; }
+.brand-card-icon-visa { width: 80px; height: 64px; display: flex; align-items: center; justify-content: center; text-align: center; }
+.brand-card-icon-visa > span { display: block; width: 100%; text-align: center; }
+.brand-card > .brand-card-icon-visa { align-self: center; margin-left: auto; margin-right: auto; }
+.brand-card-icon > svg, .brand-card-icon > img { display: block; margin: 0; object-fit: contain; }
+.brand-card-name { margin: 16px 0 26px; color: #fff; font-weight: 600; font-size: 16px; z-index: 2; }
+.trending-badge { position: absolute; top: 16px; left: 16px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(8px); color: #fff; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; display: flex; align-items: center; gap: 4px; border: 1px solid rgba(255,255,255,0.2); z-index: 2; }
+.live-rate-badge { position: absolute; bottom: 16px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); color: #fff; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); z-index: 2; }
+.loading-state, .no-results { text-align: center; padding: 60px; color: #64748b; font-size: 15px; background: rgba(255,255,255,0.4); border-radius: 24px; }
+
+@media (min-width: 901px) {
+  .brand-cards-grid { gap: 32px; }
+  .brand-card { width: 240px; height: 380px; }
+  .brand-card::after { content: ''; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 48px; height: 12px; background: #f1f5f9; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15); z-index: 2; }
+  .brand-card > .brand-card-icon { margin-top: 32px; }
+  .trending-badge { top: 40px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+}
+
+@media (max-width: 900px) {
+  .redeem-marketplace { padding-top: 40px; margin-top: 0; }
+  .redeem-marketplace.redeem-marketplace-visible { margin-top: -72px; }
+  .marketplace-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .glass-search-bar { width: 100%; }
+  .brand-cards-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .brand-card { width: 100%; height: 200px; padding: 24px 8px 20px; box-sizing: border-box; border-radius: 24px; }
+  .brand-card::after { display: none; }
+  .brand-card-icon { width: 56px; height: 56px; margin: 10px auto 8px; }
+  .brand-card-icon-amazon { width: 100px; height: 56px; margin-left: auto; margin-right: auto; }
+  .brand-card-icon-amazon > img { width: 100px; max-width: 100%; height: 56px; object-fit: contain; }
+  .brand-card > .brand-card-icon-visa { width: 80px; height: 56px; margin: 10px auto 8px; align-self: center; display: flex; align-items: center; justify-content: center; }
+  .brand-card > .brand-card-icon-visa > span { width: 100%; text-align: center; line-height: 1; }
+  .brand-card-name { margin: 4px 0 26px; font-size: 14px; text-align: center; }
+  .trending-badge { top: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+  .live-rate-badge { bottom: 10px; }
+}

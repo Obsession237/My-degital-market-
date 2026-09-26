@@ -1,0 +1,322 @@
+/* =========================================================
+   PC ONLY: LEFT-ALIGNED SEARCH PILL
+   ========================================================= */
+.pc-only-flex {
+  display: flex;
+}
+
+.pc-left-search-pill {
+  position: fixed;
+  bottom: 40px;
+  left: 40px; /* Anchored to the left instead of center */
+  z-index: 5000;
+  width: 320px;
+  
+  /* Sleek Glass Effect */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  transition: width 0.3s ease, box-shadow 0.5s ease;
+}
+
+.pc-left-search-pill:focus-within {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.pill-search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 24px;
+  cursor: text;
+}
+
+/* Plain Search Icon - No Background Fill */
+.plain-search-icon {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+/* Unbolded Input */
+.pill-search-input {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 400; /* Strictly unbolded */
+  color: #0f172a;
+  width: 100%;
+  outline: none;
+}
+
+.pill-search-input::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+/* =========================================================
+   THE GLASSY AUTO-SUGGEST DROPDOWN (PC)
+   ========================================================= */
+.search-suggestions-dropdown {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.suggestion-item:hover { background: #f1f5f9; color: #0f172a; }
+.suggestion-icon { color: #94a3b8; }
+.suggestion-item.no-results { justify-content: center; color: #94a3b8; cursor: default; }
+
+.fade-in { animation: fadeIn 0.3s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================
+   RIGHT SIDE WHATSAPP ICON & BUBBLES
+   ========================================================= */
+.whatsapp-floater {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.concierge-whatsapp-btn {
+  display: flex;
+  flex-shrink: 0; 
+  width: 56px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25d366;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 2;
+}
+
+.concierge-whatsapp-btn:hover { 
+  background: #20bd5a; 
+  transform: scale(1.05); 
+}
+
+/* 
+   THE CLOUD CHAT BUBBLE & SQUEEZE ANIMATION
+*/
+.chat-cloud-bubble {
+  position: absolute;
+  bottom: calc(100% + 12px); /* Rests exactly above the WA icon */
+  right: 0;
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  
+  /* Setup for the squeeze animation */
+  transform-origin: bottom right; 
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chat-cloud-bubble.visible {
+  opacity: 1;
+  transform: scale(1) translate(0, 0);
+  animation: floatUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.chat-cloud-bubble.squeezing {
+  opacity: 0;
+  /* Physically shrinks down and moves right into the green button */
+  transform: scale(0.1) translate(40px, 40px); 
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.waving-hand {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: waveAnimation 2s infinite;
+}
+
+@keyframes waveAnimation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* =========================================================
+   FAQ POPUP MENU (Routes to WhatsApp)
+   ========================================================= */
+.faq-popup-menu {
+  position: absolute;
+  bottom: calc(100% + 16px);
+  right: 0;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.faq-header button {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: #64748b;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.faq-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.faq-item:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.faq-arrow { color: #94a3b8; }
+
+.faq-direct-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   ========================================================= */
+@media (max-width: 900px) {
+  
+  .pc-only-flex {
+    display: none !important;
+  }
+
+  /* 
+     Mobile WhatsApp Placement
+     Right edge docking, zero padding right, above mobile dock.
+  */
+  .whatsapp-floater {
+    right: 0; 
+    bottom: 28px; 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Slides OUT right, fully off-screen when scrolling */
+  .whatsapp-floater.mobile-hidden-right {
+    transform: translateX(100%);
+  }
+
+  /* Mobile WhatsApp Button Flush to Edge */
+  .concierge-whatsapp-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 24px 0 0 24px; /* Flat edge on the right */
+    box-shadow: -4px 4px 15px rgba(37, 211, 102, 0.3);
+  }
+
+  /* Bubble pulled away from screen edge slightly on mobile */
+  .chat-cloud-bubble {
+    right: 12px; 
+  }
+
+  .faq-popup-menu {
+    right: 12px;
+    width: 260px;
+  }
+}

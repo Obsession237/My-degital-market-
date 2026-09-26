@@ -1,0 +1,7 @@
+.vn-location-step { margin-bottom: 16px; }
+.vn-input-group { position: relative; display: flex; align-items: center; min-height: 52px; margin-top: 10px; }
+.vn-input-icon { position: absolute; left: 15px; z-index: 1; flex: none; color: #64748b; pointer-events: none; }
+.vn-input-group select { width: 100%; min-height: 52px; padding: 0 42px 0 45px; border: 1px solid #cbd5e1; border-radius: 12px; appearance: none; background: #fff; color: #0f172a; font: inherit; font-size: 14px; }
+.vn-input-group::after { position: absolute; right: 17px; width: 8px; height: 8px; border-right: 2px solid #64748b; border-bottom: 2px solid #64748b; content: ''; transform: rotate(45deg) translateY(-2px); pointer-events: none; }
+.vn-input-group select:focus { outline: 2px solid rgba(37, 99, 235, 0.3); border-color: #2563eb; }
+.vn-state-select { margin-top: 12px; }

@@ -1,0 +1,22 @@
+.vn-service-hub { width: min(1100px, 100%); margin: 0 auto; padding: 150px 20px 100px; }
+.vn-hero-text { max-width: 720px; margin: 0 auto 42px; text-align: center; }
+.vn-hero-text h1 { margin: 0 0 18px; color: #0f172a; font-size: clamp(38px, 6vw, 58px); font-weight: 800; line-height: 1.05; }
+.vn-hero-text p { max-width: 620px; margin: 0 auto; color: #64748b; font-size: 16px; line-height: 1.6; }
+.vn-service-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.vn-service-card { display: flex; min-height: 244px; flex-direction: column; align-items: flex-start; padding: 24px; border: 1px solid rgba(148, 163, 184, 0.25); border-radius: 18px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 8px 26px rgba(15, 23, 42, 0.05); color: inherit; text-align: left; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.vn-service-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1); }
+.vn-service-icon { display: grid; width: 54px; height: 54px; place-items: center; margin-bottom: 18px; border-radius: 15px; }
+.vn-service-icon-blue { background: #dbeafe; color: #2563eb; }
+.vn-service-icon-purple { background: #f3e8ff; color: #9333ea; }
+.vn-service-icon-green { background: #d1fae5; color: #059669; }
+.vn-service-title { color: #0f172a; font-size: 18px; font-weight: 750; }
+.vn-service-description { margin-top: 9px; color: #64748b; font-size: 14px; line-height: 1.55; }
+.vn-service-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; margin-top: auto; padding-top: 22px; color: #0f172a; font-size: 13px; font-weight: 700; }
+
+@media (max-width: 760px) {
+  .vn-service-hub { padding: 122px 18px 90px; }
+  .vn-service-cards { grid-template-columns: 1fr; gap: 12px; }
+  .vn-service-card { min-height: auto; padding: 18px; }
+  .vn-service-icon { width: 46px; height: 46px; margin-bottom: 12px; }
+  .vn-service-title { font-size: 16px; }
+}

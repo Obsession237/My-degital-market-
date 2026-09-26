@@ -1,0 +1,43 @@
+/* =========================================
+   REDEMPTION FLOW
+   ========================================= */
+.redemption-flow-section { width: 100%; display: flex; justify-content: center; padding: 40px 0 100px; }
+.flow-card { width: 100%; max-width: 600px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 24px; padding: 32px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); position: relative; }
+.flow-back-btn { display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: #64748b; font-weight: 600; font-size: 15px; cursor: pointer; margin-bottom: 24px; padding: 0; transition: color 0.2s ease; }
+.flow-back-btn:hover { color: #0f172a; }
+.flow-brand-header { display: flex; align-items: center; gap: 16px; padding: 24px; border-radius: 16px; margin-bottom: 32px; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2); }
+.flow-brand-header h2 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
+.flow-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 14px; font-weight: 600; color: #334155; }
+.form-group input { width: 100%; padding: 16px; border-radius: 12px; border: 2px solid #e2e8f0; background: #f8fafc; font-size: 15px; color: #0f172a; outline: none; transition: border-color 0.2s ease, background 0.2s ease; box-sizing: border-box; }
+.form-group input:focus { border-color: #3b82f6; background: #fff; }
+.input-with-prefix { position: relative; display: flex; align-items: center; }
+.input-with-prefix .prefix { position: absolute; left: 16px; color: #64748b; font-weight: 600; font-size: 15px; }
+.input-with-prefix input { padding-left: 36px; }
+.btn-upload-photo { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 16px; border: 2px dashed #cbd5e1; border-radius: 12px; background: transparent; color: #475569; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.2s ease; }
+.btn-upload-photo:hover { border-color: #3b82f6; color: #3b82f6; background: #f0f9ff; }
+.btn-submit-flow { width: 100%; padding: 18px; border-radius: 14px; background: #4f46e5; color: #fff; border: none; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 12px; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3); transition: transform 0.2s ease; }
+.btn-submit-flow:hover { transform: translateY(-2px); }
+.btn-secondary-flow { width: 100%; padding: 18px; border-radius: 14px; background: transparent; color: #4f46e5; border: none; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 8px; }
+.status-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 0; }
+.status-icon-wrap { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.status-icon-wrap.pending { background: #8b5cf6; }
+.status-icon-wrap.success { background: #10b981; }
+.pulse { animation: pulseAnim 2s infinite; }
+@keyframes pulseAnim { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(139, 92, 246, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); } }
+.status-step h2 { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 8px; }
+.status-subtitle { font-size: 15px; color: #64748b; line-height: 1.5; margin: 0 0 32px; }
+.status-details-box { width: 100%; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; box-sizing: border-box; }
+.detail-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 14px; }
+.detail-row span { color: #64748b; font-weight: 500; }
+.detail-row strong { color: #0f172a; font-weight: 700; }
+.detail-row .text-orange { color: #f59e0b; }
+.flow-actions { width: 100%; display: flex; flex-direction: column; }
+
+@media (max-width: 900px) {
+  .redemption-flow-section { padding: 40px 0 100px; }
+  .flow-card { padding: 24px 20px; border-radius: 20px; border: none; box-shadow: none; background: transparent; }
+  .flow-brand-header { padding: 20px; }
+  .status-details-box { padding: 16px; }
+}

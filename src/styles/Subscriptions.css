@@ -1,0 +1,196 @@
+/* --- BASE --- */
+.subs-page {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  overflow-x: clip; 
+}
+
+.subs-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 120px 20px; /* Space for dock at the bottom */
+}
+
+.subscription-browse-section { position: relative; }
+
+/* --- FULL WIDTH PROMO HERO SLIDER --- */
+.promo-hero-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 40px;
+  margin-top: -90px; /* Pulls underneath header */
+  padding-bottom: 20px;
+}
+
+.promo-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  border-radius: 0 0 32px 32px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.promo-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top: 110px;
+  padding-bottom: 50px;
+  padding-left: max(20px, calc((100vw - 1100px) / 2 + 20px));
+  padding-right: max(20px, calc((100vw - 1100px) / 2 + 20px));
+  transition: opacity 0.6s ease-in-out, visibility 0.6s;
+}
+
+.promo-slide.active { opacity: 1; visibility: visible; z-index: 10; }
+
+.promo-green { background: linear-gradient(135deg, #dcfce3 0%, #bbf7d0 100%); border-bottom: 1px solid #86efac; }
+.promo-dark { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #fff; }
+.promo-blue { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); border-bottom: 1px solid #7dd3fc; }
+
+.promo-content { max-width: 500px; z-index: 2; }
+.promo-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.8); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 100px; margin-bottom: 20px; }
+.promo-content h2 { font-size: 38px; font-weight: 800; margin: 0 0 12px; line-height: 1.1; letter-spacing: -1px; color: #0f172a;}
+.promo-dark h2 { color: #fff; }
+.promo-content p { font-size: 16px; margin: 0 0 32px; color: #475569; line-height: 1.5; }
+.promo-dark p { color: #cbd5e1; }
+
+.btn-claim-promo { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0f172a; border: none; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 100px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: transform 0.2s; }
+.btn-claim-promo:hover { transform: translateY(-2px); }
+
+.promo-visual { z-index: 1; transform: scale(1.2) rotate(-5deg); margin-right: 40px; }
+
+/* Keep promo pagination outside the hero panel. */
+.promo-hero-section > .promo-pagination {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  z-index: 20;
+}
+
+.promo-pagination .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(15, 23, 42, 0.2); border: none; cursor: pointer; transition: all 0.3s ease; padding: 0; }
+.promo-dark .promo-pagination .dot { background: rgba(255, 255, 255, 0.3); }
+.promo-pagination .dot.active { background: #0f172a; width: 24px; border-radius: 100px; }
+.promo-dark .promo-pagination .dot.active { background: #fff; }
+
+/* Card Branding Colors */
+.bg-black { background: #000; }
+.bg-rose-500 { background: #f43f5e; }
+.bg-sky-900 { background: #0c4a6e; }
+.bg-gray-900 { background: #111827; }
+.bg-orange-500 { background: #f97316; }
+.bg-emerald-900 { background: #064e3b; }
+.bg-slate-900 { background: #0f172a; }
+.bg-blue-600 { background: #2563eb; }
+.bg-neutral-800 { background: #262626; }
+.bg-indigo-50 { background: #eef2ff; }
+.border-sub { border: 1px solid #e2e8f0; }
+.app-music-logo-box { background: transparent; }
+.app-logo-box { display: flex; align-items: center; justify-content: center; background: transparent; }
+.subscription-logo-svg { width: 32px; height: 32px; object-fit: contain; }
+.bundle-logo { color: #fff; font-size: 15px; font-weight: 900; letter-spacing: 0.5px; }
+.app-logo-box:has(.bundle-logo) { background: #111827; }
+.subscription-wide-logo { width: 74px; max-width: 100%; }
+.promo-logo { width: 120px; height: 120px; }
+
+/* =========================================================
+   MOBILE RESPONSIVENESS (The Ultimate Fix)
+   ========================================================= */
+@media (max-width: 900px) {
+
+  /* Mobile Dock Display */
+  .mobile-dock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+  }
+
+  .dock-item {
+    width: 60px;
+    height: 60px;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dock-item:active { transform: scale(0.92); }
+  .dock-item.active { background: rgba(15, 23, 42, 0.9); border-color: rgba(255, 255, 255, 0.3); }
+  .dock-item svg { stroke-width: 2.5px; }
+
+  /* --- FIXING THE HERO ALIGNMENT AND CENTERING --- */
+  
+  /* Reset container so it doesn't push the hero down incorrectly */
+  .subs-container {
+    padding: 0 20px 120px 20px;
+  }
+
+  /* Make sure breakout trick remains perfectly centered */
+  .promo-hero-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -90px;
+    margin-bottom: 40px;
+    padding-bottom: 0px; /* Let dots sit naturally below */
+  }
+
+  /* Added Height for Mobile Centering */
+  .promo-slider-wrapper {
+    height: 640px;
+    border-radius: 0 0 32px 32px; 
+  }
+
+  .promo-slide {
+    flex-direction: column;
+    justify-content: center; /* PERFECTLY CENTERS VERTICALLY */
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 28px 20px;
+  }
+
+  .promo-content h2 { font-size: 30px; line-height: 1.15; margin-bottom: 12px; }
+  .promo-content p { font-size: 15px; margin-bottom: 24px; }
+  
+  .promo-visual {
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%) scale(1.3);
+    margin-right: 0;
+    opacity: 0.15; /* Subtle watermark behind text */
+    pointer-events: none;
+  }
+
+}
+
+@media (max-width: 400px) {
+}

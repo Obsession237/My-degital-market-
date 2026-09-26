@@ -1,0 +1,53 @@
+.section-heading { font-size: 20px; font-weight: 700; color: #0f172a; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+.app-list-section { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), margin-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+.app-list-container { display: flex; flex-direction: column; gap: 16px; touch-action: pan-y; transition: opacity 0.36s ease, transform 0.36s ease; }
+.app-list-container.category-transitioning { opacity: 0.35; transform: translateY(8px); }
+.app-list-row { display: flex; align-items: center; justify-content: space-between; background: #ffffff; padding: 16px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.app-list-row:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+.app-list-left { display: flex; align-items: center; gap: 16px; }
+.list-icon-wrap { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.list-app-info { display: flex; flex-direction: column; gap: 4px; }
+.list-app-info h3 { margin: 0; font-size: 16px; font-weight: 700; color: #0f172a; }
+.list-app-info span { font-size: 13px; color: #94a3b8; font-weight: 500; }
+.app-list-right { display: flex; align-items: center; gap: 12px; }
+.list-price-info { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.list-price-val { font-size: 17px; font-weight: 800; color: #0f172a; }
+.list-billing-type { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+.list-chevron { color: #cbd5e1; }
+.subscription-pagination { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+.subscription-page-button { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid #cbd5e1; border-radius: 50%; background: #fff; color: #475569; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease; }
+.subscription-page-button:hover { border-color: #0f172a; color: #0f172a; }
+.subscription-page-button.active { border-color: #0f172a; background: #0f172a; color: #fff; }
+
+@media (min-width: 901px) {
+  .app-list-container { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .app-list-row { min-height: 190px; flex-direction: column; align-items: stretch; justify-content: space-between; padding: 22px; border-radius: 22px; }
+  .app-list-left { align-items: flex-start; }
+  .app-list-right { justify-content: space-between; }
+}
+
+@media (max-width: 900px) {
+  .subscription-list-trigger { height: 1px; }
+  .app-list-section.subscription-list-visible { margin-bottom: -60px; transform: translateY(-60px); }
+  .section-heading { font-size: 18px; margin-bottom: 14px; }
+  .app-list-container { gap: 10px; }
+  .app-list-row { min-width: 0; padding: 14px; border-radius: 16px; }
+  .app-list-left { min-width: 0; gap: 10px; }
+  .list-icon-wrap { width: 46px; height: 46px; }
+  .list-app-info { min-width: 0; }
+  .list-app-info h3 { overflow: hidden; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
+  .list-app-info span { overflow: hidden; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+  .app-list-right { gap: 7px; }
+  .list-price-val { font-size: 14px; white-space: nowrap; }
+  .list-billing-type { font-size: 9px; }
+  .list-chevron { width: 17px; }
+}
+
+@media (max-width: 400px) {
+  .app-list-row { padding: 12px 14px; }
+  .list-icon-wrap { width: 40px; height: 40px; }
+  .list-icon-wrap svg { transform: scale(0.85); }
+  .list-app-info h3 { font-size: 13px; }
+  .list-price-val { font-size: 13px; }
+  .list-billing-type { font-size: 8px; }
+}

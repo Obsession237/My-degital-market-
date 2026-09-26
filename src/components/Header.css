@@ -1,0 +1,277 @@
+/* =========================================================
+   HEADER WRAPPER
+   ========================================================= */
+.site-header.header-wrapper {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 20px;
+  background: transparent;
+  transform: translateY(0);
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.site-header.header-hidden { transform: translateY(-110%); }
+
+/* =========================================================
+   THE FLOATING PILL
+   ========================================================= */
+.site-header .header-pill {
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content; 
+  gap: 32px; 
+  padding: 8px 12px 8px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+}
+
+.site-header .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; flex-shrink: 0; }
+.site-header .logo-icon { color: #ea580c; display: flex; align-items: center; }
+.site-header .logo-text { font-weight: 800; font-size: 15px; letter-spacing: 0.5px; color: #111; }
+
+.site-header .nav { display: flex; align-items: center; gap: 24px; }
+.site-header .nav a,
+.site-header .nav-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #475569;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-header .nav a:hover,
+.site-header .nav-dropdown:hover { color: #0f172a; }
+.site-header .nav-dropdown { border: 0; padding: 0; background: transparent; cursor: pointer; font: inherit; }
+.chevron-icon { transition: transform 0.3s ease; }
+.site-header .nav-dropdown.active .chevron-icon { transform: rotate(180deg); }
+
+.site-header .header-actions { display: flex; align-items: center; flex-shrink: 0; gap: 14px; }
+.site-header .header-points-pill { display: flex; align-items: center; gap: 6px; padding: 4px 4px 4px 14px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 100px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #fff; font-size: 14px; font-weight: 800; white-space: nowrap; box-shadow: none; }
+.site-header .btn-add-points { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; margin-left: 2px; border: none; border-radius: 50%; background: #fff; color: #f59e0b; cursor: pointer; font-size: 20px; line-height: 1; box-shadow: none; transition: transform 0.2s; }
+.site-header .btn-add-points:hover { transform: scale(1.1); }
+.site-header .btn-add-points:active { transform: scale(0.9); }
+.site-header .btn-login-transparent { font-weight: 600; color: #0f172a; text-decoration: none; padding: 8px 16px; transition: opacity 0.2s; }
+.site-header .btn-login-transparent:hover { opacity: 0.7; }
+.site-header .user-avatar-circle { width: 38px; height: 38px; border-radius: 50%; background: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s; }
+.site-header .user-avatar-circle:hover { transform: scale(1.05); }
+
+
+/* =========================================================
+   PC MEGA MENU
+   ========================================================= */
+.site-header .mobile-only { display: none !important; }
+
+.site-header .pc-services-wrapper:hover .pc-mega-menu,
+.site-header .pc-services-wrapper:focus-within .pc-mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.site-header .pc-mega-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 100;
+}
+
+.site-header .services-menu-heading { 
+  grid-column: 1 / -1; 
+  padding: 0 12px 8px; 
+  color: #ea580c; 
+  font-size: 11px; 
+  font-weight: 800; 
+  letter-spacing: 1px; 
+  text-transform: uppercase; 
+}
+
+.site-header .pc-mega-menu a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #0f172a;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.site-header .pc-mega-menu a:hover { background: #f1f5f9; }
+.site-header .pc-mega-menu strong { font-size: 14px; font-weight: 700; color: #0f172a; }
+.site-header .pc-mega-menu span { color: #64748b; font-size: 12px; font-weight: 500; }
+
+.site-header .menu-btn { display: none; }
+.mobile-dock { display: none; }
+
+
+/* =========================================================
+   MOBILE RESPONSIVENESS (PERFECT SPACING)
+   ========================================================= */
+@media (max-width: 900px) {
+  
+  .site-header .pc-only { display: none !important; }
+  .site-header .mobile-only { display: flex !important; }
+
+  .site-header.header-wrapper { padding: 16px 20px; }
+  
+  .site-header .header-pill {
+    width: 100%;
+    max-width: 480px; 
+    gap: 0;
+    padding: 10px 16px 10px 20px;
+  }
+
+  .site-header .header-actions { display: none; }
+
+  .site-header .header-pill:has(.header-points-pill) { gap: 0; }
+  .site-header .header-points-pill { padding: 3px 3px 3px 10px; }
+  .site-header .header-points-pill span { font-size: 13px; }
+  .site-header .btn-add-points { width: 24px; height: 24px; }
+  
+  .site-header .menu-btn {
+    display: block;
+    padding: 6px;
+    border: 0;
+    background: none;
+    color: #0f172a;
+    cursor: pointer;
+  }
+
+  /* Mobile Drawer Menu Container */
+  .site-header .nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 16px;
+    right: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    
+    /* Slight gap, but we rely on padding for touch area */
+    gap: 4px; 
+    
+    padding: 20px; 
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  
+  .site-header .nav.nav-open { display: flex; }
+  
+  /* 
+     BEAUTIFUL, CLICKABLE MOBILE LINKS
+     Matches PC text style exactly, but with great mobile touch spacing 
+  */
+  .site-header .nav > a,
+  .site-header .nav-contact,
+  .site-header .mobile-login-btn { 
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    
+    /* Generous touch target padding gives it elegant spacing */
+    padding: 14px 12px; 
+    
+    /* Matches PC text perfectly */
+    font-size: 15px; 
+    font-weight: 600;
+    color: #475569;
+    
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    text-align: left;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  /* Interactive touch feedback */
+  .site-header .nav > a:active,
+  .site-header .nav-contact:active {
+    background: #f1f5f9;
+    color: #0f172a;
+  }
+  
+  /* Login Button styling override to make it pop */
+  .site-header .mobile-login-btn {
+    font-weight: 700 !important; 
+    color: #3b82f6 !important; 
+    margin-top: 8px !important;
+    border-top: 1px solid #f1f5f9;
+    border-radius: 0 0 12px 12px;
+  }
+
+  /* Mobile Dock Display */
+  .mobile-dock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  .mobile-dock-hidden { transform: translate(-50%, 150%); opacity: 0; pointer-events: none; }
+
+  .dock-item {
+    width: 60px;
+    height: 60px;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-radius: 22px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dock-item:active { transform: scale(0.92); }
+  .dock-item.active { background: rgba(15, 23, 42, 0.9); border-color: rgba(255, 255, 255, 0.3); }
+  .dock-item svg { stroke-width: 2.5px; }
+}

@@ -1,0 +1,14 @@
+.vn-page { min-height: 100vh; overflow-x: clip; background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%); color: #0f172a; }
+.vn-container { width: 100%; min-height: 100vh; padding-bottom: 80px; }
+.vn-wizard-container { width: min(760px, 100%); margin: 0 auto; padding: 128px 20px 70px; }
+.vn-wizard-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.vn-wizard-header h2 { margin: 0; color: #0f172a; font-size: 25px; }
+.vn-cancel { padding: 9px 14px; border: 1px solid #cbd5e1; border-radius: 9px; background: #fff; color: #475569; font-weight: 650; cursor: pointer; }
+.vn-cancel:hover { background: #f8fafc; color: #0f172a; }
+.vn-page .fade-in { animation: vnFadeIn 0.35s ease both; }
+@keyframes vnFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 560px) {
+  .vn-wizard-container { padding: 108px 16px 60px; }
+  .vn-wizard-header h2 { font-size: 20px; }
+}

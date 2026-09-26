@@ -1,0 +1,17 @@
+.vn-app-picker { margin-bottom: 16px; }
+.vn-wizard-step { padding: 22px; border: 1px solid rgba(148, 163, 184, 0.22); border-radius: 18px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 8px 26px rgba(15, 23, 42, 0.05); }
+.vn-step-label { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; color: #0f172a; font-size: 16px; font-weight: 750; }
+.vn-step-label > span { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #0f172a; color: white; font-size: 13px; }
+.vn-app-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.vn-app-select-card { display: flex; min-height: 116px; flex-direction: column; align-items: center; justify-content: center; gap: 7px; padding: 12px; border: 1px solid #e2e8f0; border-radius: 14px; background: #fff; color: #0f172a; cursor: pointer; transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease; }
+.vn-app-select-card:hover { transform: translateY(-2px); border-color: #94a3b8; }
+.vn-app-select-card.active { border-color: #2563eb; background: #eff6ff; box-shadow: inset 0 0 0 1px #2563eb; }
+.vn-app-logo { display: block; width: 46px; height: 46px; object-fit: contain; }
+.vn-app-name { font-size: 13px; font-weight: 700; }
+.vn-app-price { color: #64748b; font-size: 12px; }
+
+@media (max-width: 560px) {
+  .vn-wizard-step { padding: 16px; }
+  .vn-app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .vn-app-select-card { min-height: 104px; }
+}

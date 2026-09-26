@@ -1,0 +1,265 @@
+/* --- BASE --- */
+.search-page {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  overflow-x: clip;
+  padding-bottom: 120px; /* Crucial: leaves space for the mobile dock */
+}
+
+.fade-in { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   STICKY SEARCH HEADER PILL
+   ========================================================= */
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+}
+
+.search-header-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 100px;
+  width: 100%;
+  max-width: 800px; 
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+}
+
+/* Back Button */
+.btn-back {
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-back:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* Internal Input Area */
+.search-input-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.04);
+  padding: 12px 18px;
+  border-radius: 100px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.search-input-container:focus-within {
+  background: #fff;
+  box-shadow: 0 0 0 2px #3b82f6; /* Blue focus ring */
+}
+
+.search-icon-left { color: #64748b; flex-shrink: 0; }
+
+.search-input-container input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px; /* 16px prevents iOS auto-zoom on inputs */
+  color: #0f172a;
+  width: 100%;
+}
+
+.search-input-container input::placeholder { color: #94a3b8; }
+
+/* Clear 'X' Button */
+.btn-clear {
+  background: #cbd5e1;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-clear:hover { background: #94a3b8; }
+
+/* =========================================================
+   RESULTS CONTENT
+   ========================================================= */
+.search-page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 20px 120px;
+}
+
+.search-suggestions {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.search-suggestions::-webkit-scrollbar { display: none; }
+.search-suggestions a { 
+  flex: 0 0 auto;
+  padding: 8px 14px; 
+  border: 1px solid #cbd5e1; 
+  border-radius: 100px; 
+  background: rgba(255,255,255,0.7); 
+  color: #475569; 
+  font-size: 13px; 
+  font-weight: 500;
+  text-decoration: none; 
+  transition: all 0.2s;
+}
+.search-suggestions a:hover {
+  background: #0f172a;
+  color: #fff;
+  border-color: #0f172a;
+}
+
+/* Results Cards */
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-result-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.search-result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-result-type {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #3b82f6;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.result-info strong { font-size: 16px; font-weight: 700; }
+.result-info span:last-child { font-size: 13px; color: #64748b; }
+
+.result-arrow { color: #cbd5e1; transition: transform 0.2s, color 0.2s; }
+.search-result-card:hover .result-arrow { transform: translateX(4px); color: #0f172a; }
+
+.search-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS & DOCK
+   ========================================================= */
+.mobile-dock { display: none; }
+
+@media (max-width: 900px) {
+  
+  /* Mobile Dock Base Styling */
+  .mobile-dock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%, 0); /* Center X, Normal Y */
+    z-index: 2000;
+    touch-action: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  }
+
+  /* When Keyboard Opens -> Slide the dock down gracefully */
+  .mobile-dock.mobile-dock-hidden {
+    transform: translate(-50%, 150%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .dock-item {
+    width: 60px;
+    height: 60px;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-radius: 22px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dock-item:active { transform: scale(0.92); }
+  .dock-item.active { background: rgba(15, 23, 42, 0.9); border-color: rgba(255, 255, 255, 0.3); }
+  .dock-item svg { stroke-width: 2.5px; }
+
+  /* Mobile Search Header Shrink */
+  .header-wrapper { padding: 12px 16px; }
+  .search-header-pill { padding: 6px 10px; border-radius: 24px; }
+  .search-page-content { padding: 112px 12px 120px; }
+  .search-input-container { padding: 10px 14px; border-radius: 18px; }
+  .btn-back { padding: 6px; }
+}
